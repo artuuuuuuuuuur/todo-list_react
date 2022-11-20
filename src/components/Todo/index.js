@@ -3,13 +3,12 @@ import "./style.css";
 const ToDo = ({ title, description, onDelete, onUpdate }) => {
   return (
     <div className="todo-wrapper">
-      <span>{title}</span>
+      <span><b>{title}</b></span>
       <br />
       <span>{description}</span>
       <br />
-      <button onClick={onDelete}>Deletar</button>
-      <br />
-      <button onClick={onUpdate}>Editar</button>
+      <button className="crud" onClick={onDelete}>Deletar</button>
+      <button className="crud" onClick={onUpdate}>Editar</button>
     </div>
   );
 };

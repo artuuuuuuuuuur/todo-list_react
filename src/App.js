@@ -15,26 +15,31 @@ export default () => {
   } = useCrudTodo();
 
   return (
+    
     <div>
-      <form onSubmit={onCreate}>
-        <input
-          value={title}
-          placeholder="Insira título"
-          onChange={onTitleChange}
-          type="text"
-        />
-        <br />
-        <textarea
-          value={description}
-          placeholder="Insira descrição"
-          onChange={onDescriptionChange}
-        />
-        <br />
-        <button disabled={!canCreate} type="submit">
-          Criar
-        </button>
-      </form>
-      {todos.map(({ id, title, description }) => {
+      <h1>To-Do List</h1>
+      <div className="todo">
+        <form onSubmit={onCreate}>
+                <input className="text"
+                  value={title}
+                  placeholder="Insira um título"
+                  onChange={onTitleChange}
+                  type="text"
+                />
+                <br />
+                <textarea className="text"
+                  value={description}
+                  placeholder="Insira uma descrição"
+                  onChange={onDescriptionChange}
+                />
+                <br />
+                <button disabled={!canCreate} type="submit">
+                  Criar
+                </button>
+              </form>
+      </div>
+    
+      <div> {todos.map(({ id, title, description }) => {
         return (
           <ToDo
             key={id}
@@ -48,7 +53,7 @@ export default () => {
             }}
           />
         );
-      })}
+      })}</div>
     </div>
   );
 };

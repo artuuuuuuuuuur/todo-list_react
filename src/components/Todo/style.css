@@ -1,6 +1,44 @@
 .todo-wrapper {
-    background-color: #e7c4f2;
+    background-color: aliceblue;
     border-radius: 8px;
-    padding: 8px;
+    padding: 20px;
+    width: fit-content;
+    box-shadow: #ff8d8d 10px 10px;
+    margin-bottom: 20px;
   }
   
+body {
+  background: #434343;
+  padding: 20px;
+  display: flex;
+}
+
+.todo {
+  padding: 30px;
+  background-color: #626262;
+  width: fit-content;
+  border-radius: 9px;
+  box-shadow: 10px 10px;
+  margin-bottom: 70px;
+  
+}
+
+.text {
+  border-radius: 2px;
+  border: 0px;
+  box-shadow: #434343 5px 5px;
+  margin-bottom: 15px;
+}
+
+h1 {
+  text-shadow: #626262 2px 2px;
+  background-color: aliceblue;
+  border-radius: 10px;
+  color: pink;
+  box-shadow: #ff8d8d 10px 10px;
+  width: 300px;
+}
+
+.crud {
+  margin: 10px;
+}
