@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import ToDo from "./components/Todo";
+import useCrudTodo from "./hooks/useCrudTodo";
 
-function App() {
+export default () => {
+  const {
+    todos,
+    title,
+    description,
+    onCreate,
+    onTitleChange,
+    onDescriptionChange,
+    canCreate,
+    deleteTodo,
+    startUpdating
+  } = useCrudTodo();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <form onSubmit={onCreate}>
+        <input
+          value={title}
+          placeholder="Insira título"
+          onChange={onTitleChange}
+          type="text"
+        />
+        <br />
+        <textarea
+          value={description}
+          placeholder="Insira descrição"
+          onChange={onDescriptionChange}
+        />
+        <br />
+        <button disabled={!canCreate} type="submit">
+          Criar
+        </button>
+      </form>
+      {todos.map(({ id, title, description }) => {
+        return (
+          <ToDo
+            key={id}
+            title={title}
+            description={description}
+            onDelete={() => {
+              deleteTodo(id);
+            }}
+            onUpdate={() => {
+              startUpdating(id);
+            }}
+          />
+        );
+      })}
     </div>
   );
-}
-
-export default App;
+};
